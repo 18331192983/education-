@@ -33,6 +33,7 @@
       <div class="right">
         <h1 @click="dianji" :class="{ rotate: isShow }" class="san">三</h1>
       </div>
+      <router-view />
     </div>
   </div>
 </template>
