@@ -13,7 +13,7 @@
                     :key="index"
                     v-show="item.name!='首页'">
           <template slot="title">
-            <span slot="title">{{item.name}}</span>
+            <span slot="title">{{ item.name }}</span>
           </template>
               <el-submenu :index="item2.id"
                       v-for="(item2,index2) in item.children"
@@ -31,9 +31,7 @@
         </el-submenu>
       </el-menu>
       <div class="right">
-        <h1 @click="dianji"
-            :class="{rotate:isShow}"
-            class="san">三</h1>
+        <h1 @click="dianji" :class="{ rotate: isShow }" class="san">三</h1>
       </div>
     </div>
   </div>
@@ -43,25 +41,25 @@
 import Order from "../services/order.js";
 const _order = new Order();
 export default {
-  data () {
+  data() {
     return {
       isCollapse: true,
       isShow: false,
-      list: []//列表
+      list: [] //列表
     };
   },
   methods: {
-    dianji () {
+    dianji() {
       this.isCollapse = !this.isCollapse;
-      this.isShow = !this.isShow
+      this.isShow = !this.isShow;
     }
   },
-  created () {
+  created() {
     _order.list_home().then(res => {
       console.log(res);
       if (res.data.code === 200) {
         this.list = res.data.data.sysMenu;
-        console.log(this.list)
+        console.log(this.list);
       }
     });
   }
