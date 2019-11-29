@@ -5,7 +5,7 @@
 </template>
 
 <style lang="scss">
-*{
+* {
   margin: 0;
   padding: 0;
   list-style: none;
@@ -13,12 +13,12 @@
 }
 </style>
 <script>
-import storage from './model/storage'
+import storage from "./model/storage";
 export default {
   created() {
-    let aaa=storage.get('tolink')
-    if(aaa){
-      this.$store.state.token=aaa
+    let aaa = storage.get("tolink");
+    if (aaa) {
+      this.$store.state.token = aaa;
     }
   },
   watch: {
@@ -26,8 +26,8 @@ export default {
       handler: function() {
         storage.set("tolink", this.$store.state.token);
       },
-      deep:true
+      deep: true
     }
   }
-}
+};
 </script>
