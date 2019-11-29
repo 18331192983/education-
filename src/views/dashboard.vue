@@ -1,7 +1,15 @@
 <template>
   <div>
     <div class="content">
-      <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" background-color="#000" text-color="#fff">
+      <el-menu
+        default-active="1-4-1"
+        class="el-menu-vertical-demo"
+        @open="handleOpen"
+        @close="handleClose"
+        :collapse="isCollapse"
+        background-color="#000"
+        text-color="#fff"
+      >
         <el-submenu index="1">
           <template slot="title">
             <i class="el-icon-location"></i>
@@ -33,7 +41,7 @@
         </el-menu-item>
       </el-menu>
       <div class="right">
-        <h1 @click="dianji" :class="{rotate:isShow}" class="san">三</h1>
+        <h1 @click="dianji" :class="{ rotate: isShow }" class="san">三</h1>
       </div>
     </div>
   </div>
@@ -46,13 +54,13 @@ export default {
   data() {
     return {
       isCollapse: true,
-      isShow:false
+      isShow: false
     };
   },
   methods: {
     dianji() {
       this.isCollapse = !this.isCollapse;
-      this.isShow=!this.isShow
+      this.isShow = !this.isShow;
     }
   },
   created() {
@@ -72,13 +80,13 @@ export default {
   width: 200px;
   min-height: 400px;
 }
-.content{
+.content {
   display: flex;
 }
-.rotate{
+.rotate {
   transform: rotate(180deg);
 }
-.san{
+.san {
   transition: all 500ms;
 }
 </style>
