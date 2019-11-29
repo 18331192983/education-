@@ -1,6 +1,12 @@
 <template>
   <div>
-    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse">
+    <el-menu
+      default-active="1-4-1"
+      class="el-menu-vertical-demo"
+      @open="handleOpen"
+      @close="handleClose"
+      :collapse="isCollapse"
+    >
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
@@ -43,19 +49,22 @@ export default {
   data() {
     return {
       isCollapse: true
-    }
+    };
   },
   methods: {
-      dianji(){
-        this.isCollapse=!this.isCollapse
-      }
+    dianji() {
+      this.isCollapse = !this.isCollapse;
     }
+  },
+  created() {
+    console.log(13);
+  }
 };
 </script>
 
 <style lang="scss" scoped>
- .el-menu-vertical-demo:not(.el-menu--collapse) {
-    width: 200px;
-    min-height: 400px;
-  }
+.el-menu-vertical-demo:not(.el-menu--collapse) {
+  width: 200px;
+  min-height: 400px;
+}
 </style>
