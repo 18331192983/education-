@@ -4,41 +4,26 @@
       <el-menu
         default-active="1-4-1"
         class="el-menu-vertical-demo"
-        @open="handleOpen"
-        @close="handleClose"
         :collapse="isCollapse"
         background-color="#000"
         text-color="#fff"
       >
-        <el-submenu index="1">
+        <el-submenu
+          :index="item.id"
+          v-for="(item, index) in list"
+          :key="index"
+          v-show="item.name != '首页'"
+        >
           <template slot="title">
-            <i class="el-icon-location"></i>
-            <span slot="title">导航一</span>
+            <span slot="title">{{ item.name }}</span>
           </template>
-          <el-menu-item-group>
-            <el-menu-item index="1-1">选项1</el-menu-item>
-            <el-menu-item index="1-2">选项2</el-menu-item>
+          <el-menu-item-group
+            v-for="(item2, index2) in item.children"
+            :key="index2"
+          >
+            <el-menu-item :index="item2.id">{{ item2.name }}</el-menu-item>
           </el-menu-item-group>
-          <el-menu-item-group title="分组2">
-            <el-menu-item index="1-3">选项3</el-menu-item>
-          </el-menu-item-group>
-          <el-submenu index="1-4">
-            <span slot="title">选项4</span>
-            <el-menu-item index="1-4-1">选项1</el-menu-item>
-          </el-submenu>
         </el-submenu>
-        <el-menu-item index="2">
-          <i class="el-icon-menu"></i>
-          <span slot="title">导航二</span>
-        </el-menu-item>
-        <el-menu-item index="3" disabled>
-          <i class="el-icon-document"></i>
-          <span slot="title">导航三</span>
-        </el-menu-item>
-        <el-menu-item index="4">
-          <i class="el-icon-setting"></i>
-          <span slot="title">导航四</span>
-        </el-menu-item>
       </el-menu>
       <div class="right">
         <h1 @click="dianji" :class="{ rotate: isShow }" class="san">三</h1>
@@ -48,13 +33,14 @@
 </template>
 
 <script>
-import List from "../list/list_home";
-const _List = new List();
+import Order from "../services/order.js";
+const _order = new Order();
 export default {
   data() {
     return {
       isCollapse: true,
-      isShow: false
+      isShow: false,
+      list: [] //列表
     };
   },
   methods: {
@@ -64,11 +50,11 @@ export default {
     }
   },
   created() {
-    _List.list_home().then(res => {
+    _order.list_home().then(res => {
       console.log(res);
       if (res.data.code === 200) {
-        this.$store.state.list_home = res.data.data.sysMenu;
-        console.log(this.$store.state.list_home);
+        this.list = res.data.data.sysMenu;
+        console.log(this.list);
       }
     });
   }
