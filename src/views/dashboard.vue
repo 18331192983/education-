@@ -55,6 +55,9 @@ export default {
     dianji() {
       this.isCollapse = !this.isCollapse;
     }
+  },
+  created() {
+    console.log(13);
   }
 };
 </script>
