@@ -45,6 +45,8 @@
 </template>
 
 <script>
+import List from "../list/list_home";
+const _List = new List();
 export default {
   data() {
     return {
@@ -57,7 +59,13 @@ export default {
     }
   },
   created() {
-    console.log(123);
+    _List.list_home().then(res => {
+      console.log(res);
+      if (res.data.code === 200) {
+        this.$store.state.list_home = res.data.data.sysMenu;
+        console.log(this.$store.state.list_home);
+      }
+    });
   }
 };
 </script>
