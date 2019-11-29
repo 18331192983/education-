@@ -5,6 +5,7 @@
                class="el-menu-vertical-demo"
                :collapse="isCollapse"
                background-color="#000"
+               :unique-opened="true"
                text-color="#fff"
               >
         <el-submenu :index="item.id"
@@ -14,10 +15,19 @@
           <template slot="title">
             <span slot="title">{{item.name}}</span>
           </template>
-          <el-menu-item-group v-for="(item2,index2) in item.children"
-                              :key="index2">
-            <el-menu-item :index="item2.id">{{item2.name}}</el-menu-item>
-          </el-menu-item-group>
+              <el-submenu :index="item2.id"
+                      v-for="(item2,index2) in item.children"
+                      :key="index2"
+                      >
+            <template slot="title">
+              <span slot="title">{{item2.name}}</span>
+            </template>
+          
+              <el-menu-item-group v-for="(item3,index3) in item2.children"
+                                :key="index3">
+              <el-menu-item :index="item3.id">{{item3.name}}</el-menu-item>
+            </el-menu-item-group>
+          </el-submenu>
         </el-submenu>
       </el-menu>
       <div class="right">
