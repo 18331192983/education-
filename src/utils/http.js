@@ -25,9 +25,6 @@ class HTTP {
         headers: headers
       })
         .then(res => {
-          if (!res.code) {
-            console.log("请求成功");
-          }
           resolve(res);
         })
         .then(err => {
