@@ -1,6 +1,6 @@
 <template>
   <div>
-    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" background-color="#000">
+    <el-menu default-active="1-4-1" class="el-menu-vertical-demo" @open="handleOpen" @close="handleClose" :collapse="isCollapse" background-color="#000" text-color="#fff">
       <el-submenu index="1">
         <template slot="title">
           <i class="el-icon-location"></i>
