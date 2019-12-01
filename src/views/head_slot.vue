@@ -24,7 +24,7 @@ export default {
 <style scoped lang="scss">
 .head {
   height: 50px;
-  width: 100%;
+  width: 1100px;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
