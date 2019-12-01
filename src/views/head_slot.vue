@@ -12,13 +12,13 @@
       <img src="../assets/login_name.jpg" alt />
       <i class="el-icon-caret-bottom"></i>
     </div>
-  </div>
+  </div>                         
 </template>
 
 <script>
 export default {
   data() {
-    return {};
+    return {}; 
   },
   methods: {
     quit() {
@@ -31,7 +31,7 @@ export default {
 <style scoped lang="scss">
 .head {
   height: 50px;
-  width: 1100px;
+  width: 1800px;
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;

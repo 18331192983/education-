@@ -63,7 +63,6 @@ export default {
   },
   created() {
     _order.list_home().then(res => {
-      console.log(res);
       if (res.data.code === 200) {
         this.list = res.data.data.sysMenu;
         console.log(this.list);
