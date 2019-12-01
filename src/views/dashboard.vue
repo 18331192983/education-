@@ -1,31 +1,37 @@
 <template>
   <div>
     <div class="content">
-      <el-menu default-active="1-4-1"
-               class="el-menu-vertical-demo"
-               :collapse="isCollapse"
-               background-color="#000"
-               :unique-opened="true"
-               text-color="#fff"
-              >
-        <el-submenu :index="item.id"
-                    v-for="(item,index) in list"
-                    :key="index"
-                    v-show="item.name!='首页'">
+      <el-menu
+        default-active="1-4-1"
+        class="el-menu-vertical-demo"
+        :collapse="isCollapse"
+        background-color="#000"
+        :router="true"
+        :unique-opened="true"
+        text-color="#fff"
+      >
+        <el-submenu
+          :index="item.path"
+          v-for="(item, index) in list"
+          :key="index"
+          v-show="item.name != '首页'"
+        >
           <template slot="title">
             <span slot="title">{{ item.name }}</span>
           </template>
-              <el-submenu :index="item2.id"
-                      v-for="(item2,index2) in item.children"
-                      :key="index2"
-                      >
+          <el-submenu
+            :index="item2.path"
+            v-for="(item2, index2) in item.children"
+            :key="index2"
+          >
             <template slot="title">
-              <span slot="title">{{item2.name}}</span>
+              <span slot="title">{{ item2.name }}</span>
             </template>
-          
-              <el-menu-item-group v-for="(item3,index3) in item2.children"
-                                :key="index3">
-              <el-menu-item :index="item3.id">{{item3.name}}</el-menu-item>
+            <el-menu-item-group
+              v-for="(item3, index3) in item2.children"
+              :key="index3"
+            >
+              <el-menu-item :index="item3.path">{{ item3.name }}</el-menu-item>
             </el-menu-item-group>
           </el-submenu>
         </el-submenu>
@@ -80,5 +86,9 @@ export default {
 }
 .san {
   transition: all 500ms;
+}
+.right {
+  height: 50px;
+  line-height: 50px;
 }
 </style>

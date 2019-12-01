@@ -17,6 +17,10 @@ const routes = [
       {
         path: "",
         component: () => import("@/views/order/orderlnfo")
+      },
+      {
+        path: "/homepage/adv/pc",
+        component: () => import("@/views/homepage/adv/pc")
       }
     ]
   }

@@ -39,8 +39,8 @@ export default {
   data() {
     return {
       ruleForm: {
-        name: "",
-        password: ""
+        name: "13800000000",
+        password: "123456"
       },
       rules: {
         name: [
@@ -59,7 +59,7 @@ export default {
       this.$refs[formName].validate(valid => {
         if (valid) {
           let obj = {
-            clientId: "lkb65617f842ad4c37895a733b8de43cbb", 
+            clientId: "lkb65617f842ad4c37895a733b8de43cbb",
             ip: "127.0.0.0",
             mobile: this.ruleForm.name,
             password: this.ruleForm.password
