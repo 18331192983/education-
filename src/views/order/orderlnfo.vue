@@ -2,7 +2,7 @@
   <div>
     <Head_slot></Head_slot>
     <template>
-      <el-table :data="tableData" border style="width: 100%">
+      <el-table :data="lists" border style="width: 100%">
         <el-table-column
           fixed
           prop="date"
@@ -51,6 +51,7 @@ export default {
   },
   created() {
     this.list();
+    this.math();
   },
   methods: {
     list() {
